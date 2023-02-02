@@ -43,7 +43,6 @@ function * migrateRecords (tableName, customFunction) {
         logger.debug(`${tableName} - Processing batch # ` + batchCounter)
         yield esClient.bulk({
           index: config.get('esConfig.ES_INDEX'),
-          type: config.get('esConfig.ES_TYPE'),
           body
         })
         body = []
@@ -60,7 +59,6 @@ function * migrateRecords (tableName, customFunction) {
         logger.debug(`${tableName} - Final batch processing...`)
         yield esClient.bulk({
           index: config.get('esConfig.ES_INDEX'),
-          type: config.get('esConfig.ES_TYPE'),
           body
         })
       }

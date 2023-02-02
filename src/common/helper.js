@@ -177,7 +177,6 @@ function prepESFilter (query, actResource) {
 
   const searchCriteria = {
     index: config.get('esConfig.ES_INDEX'),
-    type: config.get('esConfig.ES_TYPE'),
     size: pageSize,
     from: (page - 1) * pageSize, // Es Index starts from 0
     body: {

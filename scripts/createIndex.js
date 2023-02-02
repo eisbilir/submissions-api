@@ -11,7 +11,7 @@ co(function * createIndex () {
   logger.info('ES Index creation started!')
   const esClient = helper.getEsClient()
   const body = { mappings: {} }
-  body.mappings[config.get('esConfig.ES_TYPE')] = {
+  body.mappings = {
     // keyword fields will do exact match
     // text field will be analyzed
     // fields not specified below will be 'text' by default

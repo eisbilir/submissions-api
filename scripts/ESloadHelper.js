@@ -21,7 +21,6 @@ function deleteDatafromES () {
   logger.info('Clear data from ES if any')
   const filter = {
     index: config.get('esConfig.ES_INDEX'),
-    type: config.get('esConfig.ES_TYPE'),
     q: '*'
   }
   return esClient.deleteByQuery(filter)
@@ -35,7 +34,6 @@ function * loadReviewTypes () {
   reviewTypes.forEach((reviewType) => {
     const record = {
       index: config.get('esConfig.ES_INDEX'),
-      type: config.get('esConfig.ES_TYPE'),
       id: reviewType.id,
       body: _.extend({ resource: 'reviewType' }, reviewType)
     }
@@ -52,7 +50,6 @@ function * loadSubmissions () {
   submissions.forEach((submission) => {
     const record = {
       index: config.get('esConfig.ES_INDEX'),
-      type: config.get('esConfig.ES_TYPE'),
       id: submission.id,
       body: _.extend({ resource: 'submission' }, submission)
     }
@@ -69,7 +66,6 @@ function * loadReviews () {
   reviews.forEach((review) => {
     const record = {
       index: config.get('esConfig.ES_INDEX'),
-      type: config.get('esConfig.ES_TYPE'),
       id: review.id,
       body: _.extend({ resource: 'review' }, review)
     }
@@ -86,7 +82,6 @@ function * loadReviewSummations () {
   reviewSummations.forEach((reviewSummation) => {
     const record = {
       index: config.get('esConfig.ES_INDEX'),
-      type: config.get('esConfig.ES_TYPE'),
       id: reviewSummation.id,
       body: _.extend({ resource: 'reviewSummation' }, reviewSummation)
     }

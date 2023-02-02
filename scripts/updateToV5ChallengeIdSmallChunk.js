@@ -49,7 +49,6 @@ function * updateRecord (submission, failedContainer) {
   try {
     const response = yield esClient.update({
       index: config.get('esConfig.ES_INDEX'),
-      type: config.get('esConfig.ES_TYPE'),
       id: submission.id,
       body: { doc: { challengeId: v5challengeId, legacyChallengeId: submission.challengeId } }
     })
