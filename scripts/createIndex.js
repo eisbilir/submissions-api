@@ -37,7 +37,8 @@ co(function * createIndex () {
       fileType: { type: 'keyword' },
       filename: { type: 'keyword' },
       review: { type: 'nested' },
-      reviewSummation: { type: 'nested' }
+      reviewSummation: { type: 'nested' },
+      updated: { type: 'date' }
     }
   }
   yield esClient.indices.create({
